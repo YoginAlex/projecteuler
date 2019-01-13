@@ -1,0 +1,16 @@
+{
+  "name": "projecteuler",
+  "version": "0.1.10",
+  "description": "TypeScript solutions for projecteuler.net problems",
+  "main": "index.js",
+  "repository": "https://github.com/YoginAlex/projecteuler",
+  "author": "Aleksey Zakharenko",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "typescript": "^3.2.2"
+  },
+  "scripts": {
+    "watch": "tsc --watch"
+  }
+}

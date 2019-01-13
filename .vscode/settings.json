@@ -1,0 +1,19 @@
+// Place your settings in this file to overwrite the default settings
+{
+  "files.exclude": {
+      "**/.git": true,
+      "**/.svn": true,
+      "**/.hg": true,
+      "**/.idea": true,
+      "**/.DS_Store": true,
+      "**/*.js": {
+          "when": "$(basename).ts"
+      },
+      "**/*.css": {
+          "when": "$(basename).sass"
+      },
+      "**/*?.css": {
+          "when": "$(basename).sass"
+      }
+  },
+}
