@@ -8,6 +8,7 @@ import Euler7 from './Euler7';
 import Euler8 from './Euler8';
 import Euler9 from './Euler9';
 import Euler10 from './Euler10';
+import Euler11 from './Euler11';
 
 const propblems = [
   Euler1,
@@ -20,6 +21,7 @@ const propblems = [
   Euler8,
   Euler9,
   Euler10,
+  Euler11,
 ];
 
 propblems.forEach((problem) => {
