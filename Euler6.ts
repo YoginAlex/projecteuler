@@ -4,9 +4,11 @@
 // The square of the sum of the first ten natural numbers is,
 
 // (1 + 2 + ... + 10)2 = 552 = 3025
-// Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is 3025 − 385 = 2640.
+// Hence the difference between the sum of the squares
+// of the first ten natural numbers and the square of the sum is 3025 − 385 = 2640.
 
-// Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
+// Find the difference between the sum of the squares
+// of the first one hundred natural numbers and the square of the sum.
 
 const EULER_6_COUNTER = 100;
 
@@ -17,7 +19,7 @@ export default class Euler6 {
   getSumOfCounterSquares = (): number => {
     let result: number = 0;
 
-    for (let index = 1; index <= this.counter; index++) {
+    for (let index = 1; index <= this.counter; index += 1) {
       result += index * index;
     }
 
@@ -27,7 +29,7 @@ export default class Euler6 {
   getSquareOfCounterSum = (): number => {
     let result: number = 0;
 
-    for (let index = 1; index <= this.counter; index++) {
+    for (let index = 1; index <= this.counter; index += 1) {
       result += index;
     }
 

@@ -1,7 +1,7 @@
 function gcd(a: number, b: number): number {
-  if(b === 0) return a;
+  if (b === 0) return a;
 
-  return gcd(b, a%b);
+  return gcd(b, a % b);
 }
 
 export {

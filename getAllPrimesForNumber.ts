@@ -1,7 +1,7 @@
 // Eratosthenes algorithm to find all primes under n
 const getAllPrimesForNumber = (forNumber: number): number[] => {
   const upperLimit = Math.sqrt(forNumber);
-  let array: Boolean[] = [];
+  const array: Boolean[] = [];
   // Make an array from 2 to (n - 1)
 
   for (let counter = 0; counter < forNumber; counter++) {

@@ -22,7 +22,7 @@ export default class Euler9 {
           break;
         }
 
-        if (this.a*this.a + this.b*this.b === this.c*this.c) {
+        if (this.a * this.a + this.b * this.b === this.c * this.c) {
           return this.a * this.b * this.c;
         }
 
