@@ -70,6 +70,6 @@ export default class Euler12 {
   }
 }
 
-console.time();
-console.log(new Euler12().getResult());
-console.timeEnd();
+// console.time();
+// console.log(new Euler12().getResult());
+// console.timeEnd();
