@@ -9,7 +9,7 @@ const EULER_3 = 600851475143;
 export default class Euler3 {
   enteredNumber = EULER_3;
   enteredSqrt = Math.sqrt(EULER_3);
-  answers:number[] = [];
+  answers: number[] = [];
 
   getResult() {
     for (let i = 1; i < this.enteredSqrt; i += 1) {

@@ -4,12 +4,12 @@ const getAllPrimesForNumber = (forNumber: number): number[] => {
   const array: Boolean[] = [];
   // Make an array from 2 to (n - 1)
 
-  for (let counter = 0; counter < forNumber; counter++) {
+  for (let counter = 0; counter < forNumber; counter += 1) {
     array[counter] = true;
   }
 
   // Remove multiples of primes starting from 2, 3, 5,...
-  for (let firstIterator = 2; firstIterator <= upperLimit; firstIterator++) {
+  for (let firstIterator = 2; firstIterator <= upperLimit; firstIterator += 1) {
     if (array[firstIterator]) {
       for (
         let secondIterator = firstIterator * firstIterator;
