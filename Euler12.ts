@@ -20,30 +20,53 @@ const EULER_12_NUMBER = 500;
 
 export default class Euler12 {
   numberOfDivisors: number;
-  resultTriangleNumber = 0;
-  dividors: number[] = [1];
 
   constructor() {
     this.numberOfDivisors = EULER_12_NUMBER;
   }
 
-  getResult = () => {
-    let counter = 0;
+  getTriangleNumber = (number: number) => {
+    let sum = 0;
 
-    while (this.dividors.length <= this.numberOfDivisors) {
-      this.dividors = [];
-      this.resultTriangleNumber = this.resultTriangleNumber + counter;
-
-      for (let i = 1; i <= Math.sqrt(this.resultTriangleNumber); i += 1) {
-        if (this.resultTriangleNumber % i === 0) {
-          this.dividors.push(i);
-        }
-      }
-
-      counter += 2;
+    for (let i = 1; i <= number; i += 1) {
+      sum += i;
     }
 
-    return this.resultTriangleNumber;
+    return sum;
+  }
+
+  getFactors = (number: number) => {
+    if (number === 1) return [1];
+
+    const array = [];
+    let i = 1;
+    let max = number;
+
+    while (i < max) {
+      if (number % i === 0) {
+        array.push(i);
+
+        if (i !== number / i) {
+          array.push(number / i);
+        }
+
+        max = number / i;
+      }
+
+      i += 1;
+    }
+
+    return array.sort((a, b) =>  a - b);
+  }
+
+  getResult = () => {
+    let i = 1;
+
+    while (this.getFactors(this.getTriangleNumber(i)).length < this.numberOfDivisors) {
+      i += 1;
+    }
+
+    return this.getTriangleNumber(i);
   }
 }
 
