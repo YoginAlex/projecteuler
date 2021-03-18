@@ -16,7 +16,8 @@
     "noImplicitReturns": true,
     "esModuleInterop": true,
     "sourceMap": true,
-    "outDir": "out"
+    "outDir": "out",
+    "moduleResolution": "node"
   },
   "exclude": ["./node_modules", "./out"]
 }
