@@ -5,32 +5,27 @@ import isPrime from './isPrime';
 
 const EULER_7_NUMBER = 10001;
 
-export default class Euler7 {
-  number: number;
-  arrayOfPrimes: number[] = [];
+export default function euler7(n: number = EULER_7_NUMBER) {
+  let arrayOfPrimes: number[] = [];
 
-  constructor(number: number = EULER_7_NUMBER) {
-    this.number = number;
-
-    this.fillArrayOfPrimes();
-  }
-
-  fillArrayOfPrimes = (): void => {
+  const fillArrayOfPrimes = (): void => {
     let i = 2;
-    this.arrayOfPrimes.push(i);
+    arrayOfPrimes.push(i);
 
     do {
       if (isPrime(i)) {
-        this.arrayOfPrimes.push(i);
+        arrayOfPrimes.push(i);
       }
 
       i += 1;
-    } while (!Boolean(this.arrayOfPrimes[this.number]));
+    } while (!Boolean(arrayOfPrimes[n]));
   }
 
-  getResult = (n: number = EULER_7_NUMBER) => this.arrayOfPrimes[n];
+  fillArrayOfPrimes();
+
+  return arrayOfPrimes[n];
 }
 
 // console.time();
-// console.log(new Euler7().getResult());
+// console.log(euler7());
 // console.timeEnd();

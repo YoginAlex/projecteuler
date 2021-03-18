@@ -12,33 +12,30 @@
 
 const EULER_6_COUNTER = 100;
 
-export default class Euler6 {
-  result: number = 0;
-  counter: number = EULER_6_COUNTER;
-
-  getSumOfCounterSquares = (): number => {
+export default function euler6(counter = EULER_6_COUNTER) {
+  const getSumOfCounterSquares = (): number => {
     let result: number = 0;
 
-    for (let index = 1; index <= this.counter; index += 1) {
+    for (let index = 1; index <= counter; index += 1) {
       result += index * index;
     }
 
     return result;
   }
 
-  getSquareOfCounterSum = (): number => {
+  const getSquareOfCounterSum = (): number => {
     let result: number = 0;
 
-    for (let index = 1; index <= this.counter; index += 1) {
+    for (let index = 1; index <= counter; index += 1) {
       result += index;
     }
 
     return result * result;
   }
 
-  getResult = (): number => this.getSquareOfCounterSum() - this.getSumOfCounterSquares();
+  return getSquareOfCounterSum() - getSumOfCounterSquares();
 }
 
 // console.time();
-// console.log(new Euler6(EULER_6_COUNTER).getResult());
+// console.log(euler6(EULER_6_COUNTER));
 // console.timeEnd();

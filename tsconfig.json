@@ -4,7 +4,7 @@
     "module": "commonjs",
     "lib": ["es2017", "dom"],
     "removeComments": true,
-    "strict": true,
+    "strict": false,
     "noImplicitAny": true,
     "strictNullChecks": true,
     "strictFunctionTypes": true,
@@ -14,6 +14,9 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
-    "esModuleInterop": true
-  }
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "outDir": "out"
+  },
+  "exclude": ["./node_modules", "./out"]
 }

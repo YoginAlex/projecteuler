@@ -1,5 +1,6 @@
 // Work out the first ten digits of the sum of the following one-hundred 50-digit numbers.
 
+// prettier-ignore
 const EULER_13_NUMBER = [
   37107287533902102798797998220837590246510135740250,
   46376937677490009712648124896970078050417018260538,
@@ -103,26 +104,15 @@ const EULER_13_NUMBER = [
   53503534226472524250874054075591789781264330331690,
 ];
 
-export default class Euler13 {
-  inputArrayOfNumbers: number[];
-
-  constructor() {
-    this.inputArrayOfNumbers = EULER_13_NUMBER;
-  }
-
+export default function euler13(inputArrayOfNumbers = EULER_13_NUMBER) {
   // Easy Peasy way
-  getResult = () => {
-    const summ = this.inputArrayOfNumbers.reduce(
-      (summ, number) => {
-        return summ + number;
-      },
-      0,
-    );
+  const summ = inputArrayOfNumbers.reduce((summ, number) => {
+    return summ + number;
+  }, 0);
 
-    return summ;
-  }
+  return summ;
 }
 
 // console.time();
-// console.log(new Euler13().getResult());
+// console.log(euler13());
 // console.timeEnd();

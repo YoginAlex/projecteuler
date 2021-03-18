@@ -2,26 +2,24 @@
 
 // What is the largest prime factor of the number 600851475143 ?
 
-import isPrime from './isPrime';
+import isPrime from "./isPrime";
 
-const EULER_3 = 600851475143;
+const EULER_3_NUMBER = 600851475143;
 
-export default class Euler3 {
-  enteredNumber = EULER_3;
-  enteredSqrt = Math.sqrt(EULER_3);
-  answers: number[] = [];
+export default function euler3() {
+  let enteredNumber = EULER_3_NUMBER;
+  let enteredSqrt = Math.sqrt(EULER_3_NUMBER);
+  let answers: number[] = [];
 
-  getResult() {
-    for (let i = 1; i < this.enteredSqrt; i += 1) {
-      if (this.enteredNumber % i === 0 && isPrime(i)) {
-        this.answers.push(i);
-      }
+  for (let i = 1; i < enteredSqrt; i += 1) {
+    if (enteredNumber % i === 0 && isPrime(i)) {
+      answers.push(i);
     }
-
-    return this.answers.pop();
   }
+
+  return answers.pop();
 }
 
 // console.time();
-// console.log(new Euler3().getResult());
+// console.log(euler3());
 // console.timeEnd();

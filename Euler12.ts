@@ -18,14 +18,8 @@
 
 const EULER_12_NUMBER = 500;
 
-export default class Euler12 {
-  numberOfDivisors: number;
-
-  constructor() {
-    this.numberOfDivisors = EULER_12_NUMBER;
-  }
-
-  getTriangleNumber = (number: number) => {
+export default function euler12(numberOfDivisors = EULER_12_NUMBER) {
+  const getTriangleNumber = (number: number) => {
     let sum = 0;
 
     for (let i = 1; i <= number; i += 1) {
@@ -33,9 +27,9 @@ export default class Euler12 {
     }
 
     return sum;
-  }
+  };
 
-  getFactors = (number: number) => {
+  const getFactors = (number: number) => {
     if (number === 1) return [1];
 
     const array = [];
@@ -56,20 +50,18 @@ export default class Euler12 {
       i += 1;
     }
 
-    return array.sort((a, b) =>  a - b);
+    return array.sort((a, b) => a - b);
+  };
+
+  let i = 1;
+
+  while (getFactors(getTriangleNumber(i)).length < numberOfDivisors) {
+    i += 1;
   }
 
-  getResult = () => {
-    let i = 1;
-
-    while (this.getFactors(this.getTriangleNumber(i)).length < this.numberOfDivisors) {
-      i += 1;
-    }
-
-    return this.getTriangleNumber(i);
-  }
+  return getTriangleNumber(i);
 }
 
 // console.time();
-// console.log(new Euler12().getResult());
+// console.log(euler12());
 // console.timeEnd();

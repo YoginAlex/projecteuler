@@ -3,8 +3,8 @@
 
 // Find the sum of all the multiples of 3 or 5 below 1000.
 
-export default class Euler1 {
-  getResult = () => Array(1000)
+export default function euler1() {
+  return Array(1000)
     .fill(1)
     .reduce(
       (result, _, index) => (
@@ -15,5 +15,5 @@ export default class Euler1 {
 }
 
 // console.time();
-// console.log(new Euler1().getResult());
+// console.log(euler1());
 // console.timeEnd();

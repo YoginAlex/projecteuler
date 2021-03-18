@@ -2,33 +2,31 @@
 
 // Find the sum of all the primes below two million.
 
-import isPrime from './isPrime';
+import isPrime from "./isPrime";
 
 const EULER_10_NUMBER = 2000000;
 
-export default class Euler10 {
-  result = 5; // 2 + 3
-  counter = 5;
+export default function euler10() {
+  let result = 5; // 2 + 3
+  let counter = 5;
 
-  getResult = () => {
-    while (this.counter < EULER_10_NUMBER) {
-      if (isPrime(this.counter)) {
-        this.result += this.counter;
-      }
-
-      this.counter += 2;
-
-      if (this.counter < EULER_10_NUMBER && isPrime(this.counter)) {
-        this.result += this.counter;
-      }
-
-      this.counter += 4;
+  while (counter < EULER_10_NUMBER) {
+    if (isPrime(counter)) {
+      result += counter;
     }
 
-    return this.result;
+    counter += 2;
+
+    if (counter < EULER_10_NUMBER && isPrime(counter)) {
+      result += counter;
+    }
+
+    counter += 4;
   }
+
+  return result;
 }
 
 // console.time();
-// console.log(new Euler10().getResult());
+// console.log(euler10());
 // console.timeEnd();

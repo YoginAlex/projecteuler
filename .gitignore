@@ -16,5 +16,6 @@ typings/
 lib/*.js
 test/*.js
 *.map
+out/
 
 *.js

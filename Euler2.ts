@@ -8,27 +8,23 @@
 
 const EULER_2_MAX_FIBONACCI = 4000000;
 
-export default class Euler2 {
-  prevFibonacci = 0;
-  fibonacci = 1;
-  resultSumm = 0;
+export default function euler2() {
+  let prevFibonacci = 0;
+  let fibonacci = 1;
+  let resultSumm = 0;
 
-  getResult() {
-    do {
-      const resultFibonacci = this.fibonacci + this.prevFibonacci;
-      this.prevFibonacci = this.fibonacci;
-      this.fibonacci = resultFibonacci;
+  do {
+    const resultFibonacci = fibonacci + prevFibonacci;
+    prevFibonacci = fibonacci;
+    fibonacci = resultFibonacci;
 
-      this.resultSumm = resultFibonacci % 2 === 0
-        ? this.resultSumm + resultFibonacci
-        : this.resultSumm;
+    resultSumm =
+      resultFibonacci % 2 === 0 ? resultSumm + resultFibonacci : resultSumm;
+  } while (fibonacci < EULER_2_MAX_FIBONACCI);
 
-    } while (this.fibonacci < EULER_2_MAX_FIBONACCI);
-
-    return this.resultSumm;
-  }
+  return resultSumm;
 }
 
 // console.time();
-// console.log(new Euler2().getResult());
+// console.log(euler2());
 // console.timeEnd();

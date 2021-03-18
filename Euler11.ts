@@ -2,6 +2,7 @@
 // What is the greatest product of four adjacent numbers in the same direction
 // (up, down, left, right, or diagonally) in the 20×20 grid?
 
+// prettier-ignore
 const EULER_11_SOURCE: string[][] = [
   ['08', '02', '22', '97', '38', '15', '00', '40', '00', '75',
     '04', '05', '07', '78', '52', '12', '50', '77', '91', '08'],
@@ -45,108 +46,92 @@ const EULER_11_SOURCE: string[][] = [
     '33', '48', '61', '43', '52', '01', '89', '19', '67', '48'],
 ];
 
-export default class Euler11 {
-  sourceArray: number[][];
-  greatestProduct: number = 0;
+export default function euler11(source = EULER_11_SOURCE) {
+  let sourceArray = source.map((row) =>
+    row.map((n) => parseInt(n, 10))
+  );
+  let greatestProduct: number = 0;
 
-  constructor() {
-    this.sourceArray = EULER_11_SOURCE.map(row => row.map(n => parseInt(n, 10)));
-  }
+  const getUpProduct = (i: number, j: number): number => {
+    const one = sourceArray[i][j];
+    const two = sourceArray[i - 1] && sourceArray[i - 1][j];
+    const three = sourceArray[i - 2] && sourceArray[i - 2][j];
+    const four = sourceArray[i - 3] && sourceArray[i - 3][j];
 
-  getUpProduct = (i: number, j: number): number => {
-    const one = this.sourceArray[i][j];
-    const two = this.sourceArray[i - 1] && this.sourceArray[i - 1][j];
-    const three = this.sourceArray[i - 2] && this.sourceArray[i - 2][j];
-    const four = this.sourceArray[i - 3] && this.sourceArray[i - 3][j];
+    return one && two && three && four ? one * two * three * four : 0;
+  };
 
-    return one && two && three && four
-      ? one * two * three * four
-      : 0;
-  }
+  const getDownProduct = (i: number, j: number): number => {
+    const one = sourceArray[i][j];
+    const two = sourceArray[i + 1] && sourceArray[i + 1][j];
+    const three = sourceArray[i + 2] && sourceArray[i + 2][j];
+    const four = sourceArray[i + 3] && sourceArray[i + 3][j];
 
-  getDownProduct = (i: number, j: number): number => {
-    const one = this.sourceArray[i][j];
-    const two = this.sourceArray[i + 1] && this.sourceArray[i + 1][j];
-    const three = this.sourceArray[i + 2] && this.sourceArray[i + 2][j];
-    const four = this.sourceArray[i + 3] && this.sourceArray[i + 3][j];
+    return one && two && three && four ? one * two * three * four : 0;
+  };
 
-    return one && two && three && four
-      ? one * two * three * four
-      : 0;
-  }
+  const getLeftProduct = (i: number, j: number): number => {
+    const one = sourceArray[i][j];
+    const two = sourceArray[i][j - 1];
+    const three = sourceArray[i][j - 2];
+    const four = sourceArray[i][j - 3];
 
-  getLeftProduct = (i: number, j: number): number => {
-    const one = this.sourceArray[i][j];
-    const two = this.sourceArray[i][j - 1];
-    const three = this.sourceArray[i][j - 2];
-    const four = this.sourceArray[i][j - 3];
+    return one && two && three && four ? one * two * three * four : 0;
+  };
 
-    return one && two && three && four
-      ? one * two * three * four
-      : 0;
-  }
+  const getRightProduct = (i: number, j: number): number => {
+    const one = sourceArray[i][j];
+    const two = sourceArray[i][j + 1];
+    const three = sourceArray[i][j + 2];
+    const four = sourceArray[i][j + 3];
 
-  getRightProduct = (i: number, j: number): number => {
-    const one = this.sourceArray[i][j];
-    const two = this.sourceArray[i][j + 1];
-    const three = this.sourceArray[i][j + 2];
-    const four = this.sourceArray[i][j + 3];
+    return one && two && three && four ? one * two * three * four : 0;
+  };
 
-    return one && two && three && four
-      ? one * two * three * four
-      : 0;
-  }
+  const getLeftDiagonalProduct = (i: number, j: number): number => {
+    const one = sourceArray[i][j];
+    const two = sourceArray[i + 1] && sourceArray[i + 1][j - 1];
+    const three = sourceArray[i + 2] && sourceArray[i + 2][j - 2];
+    const four = sourceArray[i + 3] && sourceArray[i + 3][j - 3];
 
-  getLeftDiagonalProduct = (i: number, j: number): number => {
-    const one = this.sourceArray[i][j];
-    const two = this.sourceArray[i + 1] && this.sourceArray[i + 1][j - 1];
-    const three = this.sourceArray[i + 2] && this.sourceArray[i + 2][j - 2];
-    const four = this.sourceArray[i + 3] && this.sourceArray[i + 3][j - 3];
+    return one && two && three && four ? one * two * three * four : 0;
+  };
 
-    return one && two && three && four
-      ? one * two * three * four
-      : 0;
-  }
+  const getRightDiagonalProduct = (i: number, j: number): number => {
+    const one = sourceArray[i][j];
+    const two = sourceArray[i + 1] && sourceArray[i + 1][j + 1];
+    const three = sourceArray[i + 2] && sourceArray[i + 2][j + 2];
+    const four = sourceArray[i + 3] && sourceArray[i + 3][j + 3];
 
-  getRightDiagonalProduct = (i: number, j: number): number => {
-    const one = this.sourceArray[i][j];
-    const two = this.sourceArray[i + 1] && this.sourceArray[i + 1][j + 1];
-    const three = this.sourceArray[i + 2] && this.sourceArray[i + 2][j + 2];
-    const four = this.sourceArray[i + 3] && this.sourceArray[i + 3][j + 3];
+    return one && two && three && four ? one * two * three * four : 0;
+  };
 
-    return one && two && three && four
-      ? one * two * three * four
-      : 0;
-  }
+  const getMaxProduct = (i: number, j: number) =>
+    Math.max(
+      getUpProduct(i, j),
+      getDownProduct(i, j),
+      getLeftProduct(i, j),
+      getRightProduct(i, j),
+      getLeftDiagonalProduct(i, j),
+      getRightDiagonalProduct(i, j)
+    );
 
-  getMaxProduct = (i: number, j: number) => Math.max(
-    this.getUpProduct(i, j),
-    this.getDownProduct(i, j),
-    this.getLeftProduct(i, j),
-    this.getRightProduct(i, j),
-    this.getLeftDiagonalProduct(i, j),
-    this.getRightDiagonalProduct(i, j),
-  )
+  const sourceArrayLength = sourceArray.length;
 
-  getResult = () => {
-    const sourceArrayLength = this.sourceArray.length;
+  for (let i = 0; i < sourceArrayLength - 1; i += 1) {
+    const sourceArrayRowLength = sourceArray[i].length;
 
-    for (let i = 0; i < sourceArrayLength - 1; i += 1) {
-      const sourceArrayRowLength = this.sourceArray[i].length;
+    for (let j = 0; j < sourceArrayRowLength - 1; j += 1) {
+      const maxProduct = getMaxProduct(i, j);
 
-      for (let j = 0; j < sourceArrayRowLength - 1; j += 1) {
-        const maxProduct = this.getMaxProduct(i, j);
-
-        this.greatestProduct = maxProduct > this.greatestProduct
-          ? maxProduct
-          : this.greatestProduct;
-      }
+      greatestProduct =
+        maxProduct > greatestProduct ? maxProduct : greatestProduct;
     }
-
-    return this.greatestProduct;
   }
+
+  return greatestProduct;
 }
 
 // console.time();
-// console.log(new Euler11().getResult());
+// console.log(euler11();
 // console.timeEnd();

@@ -1,39 +1,41 @@
-import Euler1 from './Euler1';
-import Euler2 from './Euler2';
-import Euler3 from './Euler3';
-import Euler4 from './Euler4';
-import Euler5 from './Euler5';
-import Euler6 from './Euler6';
-import Euler7 from './Euler7';
-import Euler8 from './Euler8';
-import Euler9 from './Euler9';
-import Euler10 from './Euler10';
-import Euler11 from './Euler11';
-import Euler12 from './Euler12';
-import Euler13 from './Euler13';
+import euler1 from './euler1';
+import euler2 from './euler2';
+import euler3 from './euler3';
+import euler4 from './euler4';
+import euler5 from './euler5';
+import euler6 from './euler6';
+import euler7 from './euler7';
+import euler8 from './euler8';
+import euler9 from './euler9';
+import euler10 from './euler10';
+import euler11 from './euler11';
+import euler12 from './euler12';
+import euler13 from './euler13';
+import euler14 from './euler14';
 
 const propblems = [
-  Euler1,
-  Euler2,
-  Euler3,
-  Euler4,
-  Euler5,
-  Euler6,
-  Euler7,
-  Euler8,
-  Euler9,
-  Euler10,
-  Euler11,
-  Euler12,
-  Euler13,
+  euler1,
+  euler2,
+  euler3,
+  euler4,
+  euler5,
+  euler6,
+  euler7,
+  euler8,
+  euler9,
+  euler10,
+  euler11,
+  euler12,
+  euler13,
+  euler14,
 ];
 
 
 propblems.forEach((problem) => {
-  const problemClassName = problem.name;
+  const problemName = problem.name;
 
-  console.time(problemClassName);
-  console.log(`${problemClassName} answer is`, new problem().getResult());
-  console.timeEnd(problemClassName);
+  console.time(problemName);
+  console.log(`${problemName} answer is `, problem());
+  console.timeEnd(problemName);
   console.log();
 });

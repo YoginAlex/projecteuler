@@ -8,35 +8,33 @@
 
 const EULER_9_NUMBER = 1000;
 
-export default class Euler9 {
-  a: number = 1;
-  b: number = this.a + 1;
-  c: number = 0;
+export default function euler9() {
+  let a: number = 1;
+  let b: number = a + 1;
+  let c: number = 0;
 
-  getResult = () => {
-    while (this.a < EULER_9_NUMBER) {
-      while (this.b < EULER_9_NUMBER && this.b > this.a) {
-        this.c = EULER_9_NUMBER - this.a - this.b;
+  while (a < EULER_9_NUMBER) {
+    while (b < EULER_9_NUMBER && b > a) {
+      c = EULER_9_NUMBER - a - b;
 
-        if (this.c < this.b) {
-          break;
-        }
-
-        if (this.a * this.a + this.b * this.b === this.c * this.c) {
-          return this.a * this.b * this.c;
-        }
-
-        this.b += 1;
+      if (c < b) {
+        break;
       }
 
-      this.a += 1;
-      this.b = this.a + 1;
+      if (a * a + b * b === c * c) {
+        return a * b * c;
+      }
+
+      b += 1;
     }
 
-    return false;
+    a += 1;
+    b = a + 1;
   }
+
+  return false;
 }
 
 // console.time();
-// console.log(new Euler9().getResult());
+// console.log(euler9());
 // console.timeEnd();

@@ -13,10 +13,33 @@
 // NOTE: Once the chain starts the terms are allowed to go above one million.
 
 
+// const EULER_14_LIMIT = 1000000;
+export default function euler14(limit = 13) {
+  // const cache = [];
+  let longestLoop = 1;
 
-export default class Euler14 {
+  for(let i = 2; i <= limit; i++) {
+    let j = i;
+    let loopCount = 0;
+
+    do {
+      loopCount++;
+      const odd = j % 2 > 0;
+      if (odd) {
+        j = 3*j + 1;
+      }
+      else {
+        j = j / 2;
+      }
+    } while (j > 1)
+
+    if (loopCount > longestLoop)  longestLoop = loopCount;
+  }
+
+
+  return longestLoop;
 }
 
-// console.time();
-// console.log(new Euler14().getResult());
-// console.timeEnd();
+console.time();
+console.log(euler14());
+console.timeEnd();
