@@ -19,3 +19,4 @@ test/*.js
 out/
 
 *.js
+.vscode
